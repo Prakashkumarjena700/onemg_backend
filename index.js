@@ -80,7 +80,6 @@ app.get("/data/:_id", async (req, res) => {
 
 app.use("/users", userRoute)
 app.use("/admin", adminRoute)
-app.use(authenticate)
 app.get("/usersdata", async (req, res) => {
     try {
         let users = await userModel.find()
@@ -90,6 +89,7 @@ app.get("/usersdata", async (req, res) => {
     }
 })
 app.use("/products", productRoute)
+app.use(authenticate)
 app.use("/cart", cartRoute)
 
 
